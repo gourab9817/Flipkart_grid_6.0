@@ -1,0 +1,239 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Detection & Realtime Analysis</title>
+    <link rel="stylesheet" href="{% static 'css/main-style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            background-image: url("{% static 'images/gourab.png' %}");
+        }
+        header {
+            background-color: #4dfa6a;
+            padding: 10px;
+            text-align: center;
+            border-bottom: 2px solid #0000ff;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #0000ff;
+            font-weight: bold;
+        }
+        footer {
+            background-color: #0000ff;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        .box {
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .upload-box {
+            background-color: #ffeb3b;
+        }
+        .camera-box {
+            background-color: #4caf50;
+        }
+        .video-box {
+            background-color: #2196f3;
+        }
+        .btn {
+            background-color: #00796b;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #004d40;
+            transform: scale(1.05);
+        }
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+        .upload-btn-wrapper input[type=file] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .results {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .results img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .result-details {
+            margin-top: 10px;
+            text-align: left;
+        }
+        .result-details h2, .result-details h1, header h1, .box h2 {
+            color: black; /* All headings are now black */
+        }
+        .result-details p {
+            margin: 5px 0;
+        }
+        .result-details label {
+            font-weight: bold;
+        }
+        video {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .tittu{
+            width:1150px;
+            text-align: center;
+            padding: 20px;
+            background-color: #7044BF;
+            color: black;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+    <script>
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+        }
+        function showFileName(input) {
+            const fileName = input.files[0].name;
+            document.getElementById('file-name').innerText = 'Selected file: ' + fileName;
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            const startButton = document.getElementById("start-camera");
+            const stopButton = document.getElementById("stop-camera");
+            const webcam = document.getElementById("webcam");
+            let stream = null;
+
+            startButton.addEventListener("click", async () => {
+                if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                    try {
+                        stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                        webcam.srcObject = stream;
+                        webcam.style.display = "block";
+                    } catch (err) {
+                        console.error("Error accessing webcam:", err);
+                    }
+                } else {
+                    alert("Webcam not supported in this browser.");
+                }
+            });
+
+            stopButton.addEventListener("click", () => {
+                if (stream) {
+                    const tracks = stream.getTracks();
+                    tracks.forEach((track) => track.stop());
+                    webcam.style.display = "none";
+                    webcam.srcObject = null;
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+        </nav>
+    </header>
+    <div class="container">
+        <header>
+            <h1>Object Detection & Realtime Analysis</h1>
+        </header>
+        <div align="left"><a href="/"><i class="fa fa-arrow-left"></i> Home</a></div>
+        <div align="right"><a href="history"><button class="btn min">History</button></a></div>
+        <div class="box upload-box">
+            <h2>Upload Image</h2>
+            <form method="post" enctype="multipart/form-data" onsubmit="showLoading()">
+                {% csrf_token %}
+                <div align="center" class="row">
+                    <div class="upload-btn-wrapper">
+                        <button class="btn">Upload an image</button>
+                        <input type="file" name="image" accept="image/*" required onchange="showFileName(this)">
+                    </div>
+                    <button type="submit" class="btn">Detect Object</button>
+                    <p id="file-name"></p>
+                </div>
+            </form>
+            <div id="loading" class="loading">
+                <p>Loading...</p>
+            </div>
+            {% if image_uploaded %}
+                <div class="results">
+                    <img src="{{ uploaded_image_url }}" alt="Uploaded Image">
+                    <div class="result-details">
+                        <h2>Results:</h2>
+                        <p><label>Object Count:</label> {{ object_count }}</p>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+
+
+        <div class="tittu"> 
+            <h1>Hello Folks, Greetings of the day !! <br></h1>
+            <p>
+    
+                We have created a real-time live feeding model to detect the freshness of the product, but due to lack of GPU and Resources while hosting the application to the server it requires computation power like AWS GPU(which is not free) so unable to post that, we have given the access link to our model's file in the GitHub repository, which is in the form of .exe for direct executing and video proof of running the application in our device. 
+            </p>
+        
+            </div>
+        <div class="box camera-box">
+            <h2>Realtime Camera</h2>
+            <button id="start-camera" class="btn">Start Camera</button>
+            <button id="stop-camera" class="btn">Stop Camera</button>
+            <video id="webcam" autoplay muted playsinline style="display: none;"></video>
+        </div>
+        <div class="box video-box">
+            <h2>Video Playback</h2>
+            <video id="video-box" autoplay muted controls>
+                <source src="{{ video_url }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    <footer>
+        <p>© 2024 Gourab</p>
+    </footer>
+</body>
+</html>

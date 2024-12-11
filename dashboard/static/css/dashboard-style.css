@@ -1,0 +1,246 @@
+body {
+    font-family: Arial, sans-serif;
+    color: rgba(35, 255, 1, 0.744);
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure the canvas is behind other elements */
+}
+
+.header {
+    background-color: #3d72c7;
+    backdrop-filter: blur(10px);
+    display: flex;
+    margin-left: 20px;
+    margin-right: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    top: 10px;
+    font-size: 25px;
+    z-index: 1; /* Ensure the header is above the canvas */
+}
+
+.footer {
+    margin-top: 220px;
+    background-color: #2874f0;
+    backdrop-filter: blur(10px);
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    bottom: 0;
+    width: 100%;
+    font-size: 15px;
+    margin-left: 35px;
+    width: 1400px;
+    height: 35px;
+    margin-bottom: 10px;
+    z-index: 1; /* Ensure the footer is above the canvas */
+}
+.tittu{
+    background-color: #FFF100;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.header a.logout-button {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #FFF100;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.container {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-grow: 1; /* Ensure this section expands to fill available space */
+}
+
+.link-boxes {
+    display: flex;
+    gap: 120px;
+    justify-content: center;
+    margin-top: 100px;
+    padding: 0 5%;
+}
+
+.card {
+    width: 190px;
+    height: 254px;
+    background: #3405a3;
+    border-radius: 15px;
+    box-shadow: 1px 5px 60px 0px #100a886b;
+}
+
+.card .card-border-top {
+    width: 60%;
+    height: 3%;
+    background: #6b64f3;
+    margin: auto;
+    border-radius: 0px 0px 15px 15px;
+}
+
+.card span {
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    display: block;
+    padding-top: 10px;
+    font-size: 16px;
+}
+
+.card .img {
+    width: 70px;
+    height: 80px;
+    background: #6b64f3;
+    border-radius: 15px;
+    margin: auto;
+    margin-top: 25px;
+}
+
+.card button {
+    padding: 8px 25px;
+    display: block;
+    margin: auto;
+    border-radius: 8px;
+    border: none;
+    margin-top: 30px;
+    background: #6b64f3;
+    color: white;
+    font-weight: 600;
+}
+
+.card button:hover {
+    background: #a9a60c;
+}
+
+.row-text {
+    width: 40%;
+}
+
+.small-text {
+    font-size: 10px;
+}
+
+.medium-text {
+    font-size: 12px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.blank-box {
+    background: transparent;
+}
+
+.blank-box img {
+    display: none;
+}
+
+.img1 {
+    background-image: url('../images/freshfruit.png');
+    background-size: cover;   /* Ensures the image covers the area */
+    background-position: center; /* Ensures the image is centered */
+    width: 70px;              /* Set a specific width */
+    height: 80px;             /* Set a specific height */
+    border-radius: 15px;      /* Retain the rounded corners */
+    margin: auto;
+    margin-top: 25px;
+}
+
+
+.img2 {
+    background-image: url('../images/IR.png');
+    background-size: cover;   /* Ensures the image covers the area */
+    background-position: center; /* Ensures the image is centered */
+    width: 70px;              /* Set a specific width */
+    height: 80px;             /* Set a specific height */
+    border-radius: 15px;      /* Retain the rounded corners */
+    margin: auto;
+    margin-top: 25px;
+}
+
+.img3 {
+    background-image: url('../images/OCR.png');
+    background-size: cover;   /* Ensures the image covers the area */
+    background-position: center; /* Ensures the image is centered */
+    width: 70px;              /* Set a specific width */
+    height: 80px;             /* Set a specific height */
+    border-radius: 15px;      /* Retain the rounded corners */
+    margin: auto;
+    margin-top: 25px;
+}
+
+
+.card2 {
+    width: 190px;
+    height: 254px;
+    background: #93ff46;
+    border-radius: 15px;
+    box-shadow: 1px 5px 60px 0px #100a886b;
+}
+
+.card2 .card-border-top {
+    width: 60%;
+    height: 3%;
+    background: #6b64f3;
+    margin: auto;
+    border-radius: 0px 0px 15px 15px;
+}
+
+.card2 span {
+    font-weight: 600;
+    color: rgb(6, 6, 6);
+    text-align: center;
+    display: block;
+    padding-top: 10px;
+    font-size: 16px;
+}
+
+.card2 .img {
+    width: 70px;
+    height: 80px;
+    background: #6b64f3;
+    border-radius: 15px;
+    margin: auto;
+    margin-top: 25px;
+}
+
+.card2 button {
+    padding: 8px 25px;
+    display: block;
+    margin: auto;
+    border-radius: 8px;
+    border: none;
+    margin-top: 30px;
+    background: #6b64f3;
+    color: white;
+    font-weight: 600;
+}
+
+.card2 button:hover {
+    background: #a9a60c;
+}
