@@ -5,7 +5,7 @@
 **Demo Video Link:** https://youtu.be/8s3sAIvPJv0?feature=shared
 
 
-![Hexagone](https://raw.githubusercontent.com/gourab9817/Flipkart_grid_6.0/main/photos/Website_Home.png)
+![Hexagone](https://raw.githubusercontent.com/gourab9817/Flipkart_grid_6.0/main/Photos/Website_Home.png)
 
 
 **Step-by-Step Guide to Setting Up and Running the Application**
