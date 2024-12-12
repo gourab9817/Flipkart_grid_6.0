@@ -11,21 +11,21 @@
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/williyam-m/Flipkart_Grid_6_0.git
+   https://github.com/gourab9817/Flipkart_grid_6.0.git
    ```
 2. **Create a Virtual Environment**
     ```bash
-   python -m venv venv
+   python -m venv Grid
    ```
 3. **Activate the Virtual Environment**
 
    - **On Windows:**
      ```bash
-     venv\Scripts\activate
+     Grid\Scripts\activate
      ```
    - **On Linux/macOS:**
      ```bash
-     source venv/bin/activate
+     source Grid/bin/activate
      ```
 4. **Install Required Packages**
     ```bash
@@ -89,12 +89,4 @@ This dataset contains images of the following fruits and vegetables items:
 ![Hexagone](/static/images/smart-vision-bottom.png)
 
 
-## References and Resources
 
- - Django Documentation: https://docs.djangoproject.com/
- - Python Official Documentation: https://docs.python.org/3/
- - Keras : https://keras.io/
- - TensorFlow : https://www.tensorflow.org/
- - MobileNetV2 : https://keras.io/api/applications/mobilenet/
- - OpenCV : https://opencv.org/
- - SQLite : https://www.sqlite.org/index.html
