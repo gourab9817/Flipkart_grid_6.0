@@ -40,22 +40,26 @@
    
 ### Freshness Detector
 
-![Hexagone](/static/images/freshness-detector-img.png)
+![Hexagone](https://raw.githubusercontent.com/gourab9817/Flipkart_grid_6.0/main/Photos/Freshness_page.png)
  - Predicts the freshness and identifies the class (type) of fruits and vegetables.
  - Utilizes a model I trained using a dataset from Kaggle with MobileNetV2 as the base model in TensorFlow.
+ - ![Hexagone](https://raw.githubusercontent.com/gourab9817/Flipkart_grid_6.0/main/Photos/Freshness_history.png)
+
 
 ### Feature Extractor
 
-![Hexagone](/static/images/feature-extractor-img.png)
+![Hexagone](https://raw.githubusercontent.com/gourab9817/Flipkart_grid_6.0/main/Photos/Feature_extractor.png)
  - Extracts product details such as MRP, EAN, manufacture date, and expiry date using OCR powered by Pytesseract.
  - Processes the text to validate the expiry date of the product.
+![Hexagone](https://raw.githubusercontent.com/gourab9817/Flipkart_grid_6.0/main/Photos/Feature_history.png)
 
 
 ### Object Detection
 
-![Hexagone](/static/images/object-detection-img.png)
+![Hexagone](https://raw.githubusercontent.com/gourab9817/Flipkart_grid_6.0/main/Photos/Object_detection.png)
  - Counts and highlights products within an image.
  - Employs the EfficientDet model from TensorFlow Hub.
+![Hexagone](https://raw.githubusercontent.com/gourab9817/Flipkart_grid_6.0/main/Photos/Object_identification_history.png)
 
 
 ### Dataset For `Freshness Detector`
@@ -87,7 +91,7 @@ This dataset contains images of the following fruits and vegetables items:
 - Pytesseract : https://pypi.org/project/pytesseract/
 
 
-![Hexagone](/static/images/smart-vision-bottom.png)
+
 
 
 
