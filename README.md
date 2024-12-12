@@ -5,7 +5,8 @@
 **Demo Video Link:** https://youtu.be/8s3sAIvPJv0?feature=shared
 
 
-![Hexagone]()
+![Hexagone](photos/Website_Home)
+
 
 **Step-by-Step Guide to Setting Up and Running the Application**
 
