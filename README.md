@@ -1,11 +1,11 @@
 
 # Flipkart_grid_6.0
 
-# Smart Vision
+# Hexagone
 **Demo Video Link:** https://youtu.be/EFACJ6n8zPc
 
 
-![Smart Vision](/static/images/smart-vision-top.png)
+![Hexagone]()
 
 **Step-by-Step Guide to Setting Up and Running the Application**
 
@@ -39,20 +39,20 @@
    
 ### Freshness Detector
 
-![Smart Vision](/static/images/freshness-detector-img.png)
+![Hexagone](/static/images/freshness-detector-img.png)
  - Predicts the freshness and identifies the class (type) of fruits and vegetables.
  - Utilizes a model I trained using a dataset from Kaggle with MobileNetV2 as the base model in TensorFlow.
 
 ### Feature Extractor
 
-![Smart Vision](/static/images/feature-extractor-img.png)
+![Hexagone](/static/images/feature-extractor-img.png)
  - Extracts product details such as MRP, EAN, manufacture date, and expiry date using OCR powered by Pytesseract.
  - Processes the text to validate the expiry date of the product.
 
 
 ### Object Detection
 
-![Smart Vision](/static/images/object-detection-img.png)
+![Hexagone](/static/images/object-detection-img.png)
  - Counts and highlights products within an image.
  - Employs the EfficientDet model from TensorFlow Hub.
 
@@ -86,7 +86,7 @@ This dataset contains images of the following fruits and vegetables items:
 - Pytesseract : https://pypi.org/project/pytesseract/
 
 
-![Smart Vision](/static/images/smart-vision-bottom.png)
+![Hexagone](/static/images/smart-vision-bottom.png)
 
 
 ## References and Resources
