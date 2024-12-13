@@ -67,7 +67,7 @@
 **Download the dataset from Kaggle.**
 
 - Link : https://www.kaggle.com/datasets/muhriddinmuxiddinov/fruits-and-vegetables-dataset
-
+product dataset- https://www.kaggle.com/datasets/gourab8889/product-detection-and-identification-dataset
 This dataset contains images of the following fruits and vegetables items:
 
 **Fresh fruits-** fresh banana, fresh apple, fresh orange, fresh mango and fresh strawberry.
